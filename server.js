@@ -10,7 +10,7 @@ MongoClient.connect(uri, (err, client) => {
 	db=client.db('projetodesafio')
   // ... start the server
     
-    app.listen(3000, () => {
+    app.listen(80, () => {
 	console.log('server running on port 3000')
 	})
 
