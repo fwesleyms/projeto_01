@@ -5,12 +5,14 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://dbUser:sudosu@projetodesafio-znyj5.gcp.mongodb.net/test?retryWrites=true&w=majority"
 
+var porta = process.env.PORT || 8080;
+
 MongoClient.connect(uri, (err, client) => {
 	if (err) return console.log(err)
 	db=client.db('projetodesafio')
   // ... start the server
     
-    app.listen(80, () => {
+    app.listen(porta, () => {
 	console.log('server running on port 3000')
 	})
 
