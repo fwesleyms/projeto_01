@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <title>Editar Informações</title>
+</head>
+<body style="background-color: #e8dbdb">
+<header style="float:center; text-align: center; font-size: 34px; font-weight: bolder; width: 70%;"><img src="https://img6.androidappsapk.co/115/d/5/1/br.ltsolucoesconsultas.cnpj.png"><br>Cadastro de Pessoas Jurídicas </header>
+
+<h2 class="container">Editar Registro<h2>
+    <% data.forEach(function(details) { %>
+        <form action="/edit/<%= details._id %>" method="POST">
+            <input type="text" value="<%= details.name %>" name="name"  style="width: 350px;border: 2px solid black; height: 31px;">
+            <input type="text" value="<%= details.surname %>" name="surname" style="width: 150px; border: 2px solid black; height: 31px;">
+            <input list="regime" placeholder="Regime Tributário" style="width:130px;border: 2px solid black; height: 31px;"name="regime" value="<%= details.regime %>">
+              <datalist id="regime_tributario">
+                    <option value="Simples Nacional">
+                    <option value="Lucro Presumido">
+                    <option value="Lucro Real">
+                    <option value="Micro Empreendedor Individual">
+                    <option value="Liquidado">     
+              </datalist>
+            <br>
+
+            <button  style="
+                        background-color:#03adfc;
+                        border:1px solid #03adfc;
+                        display:inline-block;
+                        font-family:Arial;
+                        font-size:15px;
+                        font-weight:bold;
+                        padding:6px 24px;
+                        text-decoration:none;
+                        margin-top: 10px;
+                        float: center;
+                        text-decoration-color: white;
+                        "><a style="color:white; text-decoration: none;"href="/show">Listar todos</a></button>
+            <button type="submit" 
+                    style="
+                        background-color:#14a33a;
+                        border:1px solid #18ab29;
+                        display:inline-block;
+                        font-family:Arial;
+                        font-size:15px;
+                        font-weight:bold;
+                        padding:6px 24px;
+                        text-decoration:none;
+                        margin-top: 10px;
+                        float: center;
+                        text-decoration-color: white;
+                        color: white;
+                        ">
+                    Atualizar</button>
+        </form>
+    <% }) %>  
+
+</body>
+</html>

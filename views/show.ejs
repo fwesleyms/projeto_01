@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <title>Cadastro de Pessoa Jurídica</title>
+</head>
+<body style="background-color: #e8dbdb">
+<header style="float:center; text-align: center; font-size: 34px; font-weight: bolder; width: 80%;"><img src="https://img6.androidappsapk.co/115/d/5/1/br.ltsolucoesconsultas.cnpj.png"><br>Cadastro de Pessoas Jurídicas </header>
+
+    <div style="float:center; width: 80%;">  
+    <h2 style="text-align:center;font-family: sans-serif;">Registros</h2>
+    <table style="">
+        <thead>
+            <tr style="background-color: indigo; color: white; height: 40px;">
+                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 480px;">Nome Fantasia</td>
+                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder;">CNPJ</td>
+                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 250px;">Regime Tributário</td>      
+                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 220px;">Ações</td>
+            </tr>
+        </thead>
+        <tbody style="background-color: #ccc;  border-bottom-width: thin;border-bottom-style: solid; border-bottom-color: #000;
+" >
+        <% data.forEach(function(details) { %>
+            <tr>
+                <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em;";><%= details.name %></td>
+                <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em;text-align:center; width:190px;";><%= details.surname %></td>
+                <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em;text-align:center;";><%= details.regime %></td>
+
+                <td><a href="/edit/<%= details._id %>" style="
+                        background:linear-gradient(to bottom, #0800fc 5%, #0022cc 100%);
+                        background-color:#0800fc;
+                        border:1px solid #2c27d6;
+                        display:inline-block;
+                        cursor:pointer;
+                        color:#ffffff;
+                        font-family:Arial;
+                        font-size:15px;
+                        font-weight:bold;
+                        padding:6px 24px;
+                        text-decoration:none;
+                        margin-left: 3px;
+                        width: 45px;
+                        "> Editar </a>  
+                <a href="/delete/<%=details._id%>"style="    
+                        background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+                        border:1px solid #d83526;
+                        display:inline-block;
+                        cursor:pointer;
+                        color:#ffffff;
+                        font-family:Arial;
+                        font-size:15px;
+                        font-weight:bold;
+                        padding:6px 24px;
+                        text-decoration:none;
+                        width: 45px;">Deletar</a></td>
+            </tr>
+            <% }) %>
+
+        </tbody>
+
+        </table>
+        <br>
+        <div style="margin-left: 30%;">
+        <button style="
+                        background-color:#14a33a;
+                        border:1px solid #18ab29;
+                        display:inline-block;
+                        font-family:Arial;
+                        font-size:15px;
+                        font-weight:bold;
+                        padding:6px 24px;
+                        text-decoration:none;
+                        float: center;
+                        text-decoration-color: white;
+                        ">
+    <a style="color:white;text-decoration: none;" href="/">Cadastrar novo</a></button></div>     
+        </div>
+</body>
+</html>
