@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/grid.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
 	<title>Cadastro de Pessoa Jurídica</title>
@@ -17,7 +19,7 @@
     <h2 style="font-family: sans-serif;">Registrar<h2>
     <form action="/show" method="POST">
         <input type="text" placeholder="Nome Fantasia" name="name" style="width: 350px;border: 2px solid black; height: 31px;">
-        <input type="text" placeholder="CNPJ" name="surname" style="width: 150px; border: 2px solid black; height: 31px;">
+        <input type="text" placeholder="CNPJ" class="cpfOuCnpj" name="surname" style="width: 150px; border: 2px solid black; height: 31px;">
     	  <input list="regime_tributario" name="regime" placeholder="Regime Tributário" style="width:130px;border: 2px solid black; height: 31px;">
 			  <datalist id="regime_tributario">
 				    <option value="Simples Nacional">
@@ -57,4 +59,14 @@
 
 </form>
 </body>
+<script type="text/javascript">
+	var options = {
+    onKeyPress: function (cpf, ev, el, op) {
+        var masks = ['000.000.000-000', '00.000.000/0000-00'];
+        $('.cpfOuCnpj').mask((cpf.length > 14) ? masks[1] : masks[0], op);
+    }
+}
+
+$('.cpfOuCnpj').length > 11 ? $('.cpfOuCnpj').mask('00.000.000/0000-00', options) : $('.cpfOuCnpj').mask('000.000.000-00#', options); 
+</script>
 </html>
