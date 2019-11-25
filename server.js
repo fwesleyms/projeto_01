@@ -63,13 +63,17 @@ app.route('/edit/:id')
 		var name = req.body.name
 		var surname = req.body.surname
 		var regime = req.body.regime
+		var endereco = req.body.endereco
+		var telefone = req.body.telefone
 		var ObjectId = require('mongodb').ObjectId;
 
 		db.collection('data').updateOne({_id: ObjectId(id)}, {
 		$set: {
 			name: name,
 			surname: surname,
-			regime: regime
+			regime: regime,
+			endereco: endereco,
+			telefone: telefone
 			}
 		}, (err, result) => {
 			if (err) return res.sen(err)

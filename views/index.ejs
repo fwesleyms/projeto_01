@@ -16,17 +16,36 @@
 <body style="background-color: #e8dbdb">
 <header style="float:center; text-align: center; font-size: 34px; font-weight: bolder; width: 70%;"><img src="https://img6.androidappsapk.co/115/d/5/1/br.ltsolucoesconsultas.cnpj.png"><br>Cadastro de Pessoas Jurídicas </header>
 
-    <h2 style="font-family: sans-serif;">Registrar<h2>
+    <h2 style="font-family: sans-serif;">Cadastre uma nova empresa<h2>
     <form action="/show" method="POST">
-        <input type="text" placeholder="Nome Fantasia" name="name" style="width: 350px;border: 2px solid black; height: 31px;">
-        <input type="text" placeholder="CNPJ" class="cpfOuCnpj" name="surname" style="width: 150px; border: 2px solid black; height: 31px;">
-    	  <input list="regime_tributario" name="regime" placeholder="Regime Tributário" style="width:130px;border: 2px solid black; height: 31px;">
+
+   	    <div style="display: inline-block;">
+         <div style="display: block;float: left;">
+            <p style="font-family: sans-serif;">Razão Social</p>
+        <input type="text" placeholder=" Nome Fantasia" name="name" style="width: 350px;border: 2px solid black; height: 31px;"> 
+            <p style="font-family: sans-serif;">CNPJ</p>
+        <input type="text" placeholder=" CNPJ" class="cpfOuCnpj" name="surname" style="width: 125px; border: 2px solid black; height: 31px;">
+    </div>
+
+            <div style="display: block; float: right; margin-left: 10px;">
+            <p style="font-family: sans-serif;">Endereço</p>
+        <input type="text" placeholder=" Endereço" class="" name="endereco" style="width: 250px; border: 2px solid black; height: 31px;">
+
+            <p style="font-family: sans-serif;">Telefone</p>
+        <input type="text" placeholder=" (88 4002-8922)" class="" name="telefone" style="width: 125px; border: 2px solid black; height: 31px;">
+
+       </div>
+        <div style="">
+         <p style="font-family: sans-serif; margin-top: 250px;">Regime Tributário</p>
+    	  <input list="regime_tributario" name="regime" placeholder=" Regime Tributário" style="width:130px;border: 2px solid black; height: 31px;">
 			  <datalist id="regime_tributario">
-				    <option value="Simples Nacional">
-				    <option value="Lucro Presumido">
-				    <option value="Lucro Real">
-				    <option value="Micro Empreendedor Individual">		
+				    <option value="Simples Nacional"></option>
+				    <option value="Lucro Presumido"></option>
+				    <option value="Lucro Real"></option>
+				    <option value="Micro Empreendedor Individual"></option>	
 			  </datalist><br>
+		  </div>
+		<div style="display: block;">
         <button type="submit" 
         				style="
 		                        background-color:#14a33a;
@@ -54,7 +73,7 @@
                         margin-top: 10px;
                         float: center;
                         text-decoration-color: white;
-                        "><a style="color:white; text-decoration: none;"href="/show">Listar todos</a></button>
+                        "><a style="color:white; text-decoration: none;"href="/show">Listar todos</a></button></div>
     </form> 
 
 </form>

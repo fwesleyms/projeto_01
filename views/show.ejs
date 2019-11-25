@@ -6,27 +6,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
     <title>Cadastro de Pessoa Jurídica</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body style="background-color: #e8dbdb">
 <header style="float:center; text-align: center; font-size: 34px; font-weight: bolder; width: 80%;"><img src="https://img6.androidappsapk.co/115/d/5/1/br.ltsolucoesconsultas.cnpj.png"><br>Cadastro de Pessoas Jurídicas </header>
 
-    <div style="float:center; width: 80%;">  
+    <div style="float:center; width: 100%;">  
     <h2 style="text-align:center;font-family: sans-serif;">Registros</h2>
     <table style="">
         <thead>
             <tr style="background-color: indigo; color: white; height: 40px;">
                 <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 480px;">Nome Fantasia</td>
-                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder;">CNPJ</td>
+                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 220px">CNPJ</td>
+                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 250px;">Endereço</td>
+                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 180px;">Telefone</td>    
                 <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 250px;">Regime Tributário</td>      
-                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 220px;">Ações</td>
+                <td style="text-align: center;font-family: sans-serif;font-size: 22px; font-weight: bolder; width: 290px;">Ações</td>
             </tr>
         </thead>
         <tbody style="background-color: #ccc;  border-bottom-width: thin;border-bottom-style: solid; border-bottom-color: #000;
 " >
         <% data.forEach(function(details) { %>
             <tr>
-                <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em;";><%= details.name %></td>
+                <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em; padding-left: 10px;";><%= details.name %></td>
                 <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em;text-align:center; width:190px;";><%= details.surname %></td>
+                <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em;text-align:center;";><%= details.endereco %></td>
+                <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em;text-align:center;";><%= details.telefone %></td>
                 <td style="font-family: sans-serif; font-size: 20px; padding: 0,5em;text-align:center;";><%= details.regime %></td>
 
                 <td><a href="/edit/<%= details._id %>" style="
@@ -63,7 +68,7 @@
 
         </table>
         <br>
-        <div style="margin-left: 30%;">
+        <div style="display: block; margin-left: 40%;">
         <button style="
                         background-color:#14a33a;
                         border:1px solid #18ab29;
@@ -76,7 +81,7 @@
                         float: center;
                         text-decoration-color: white;
                         ">
-    <a style="color:white;text-decoration: none;" href="/">Cadastrar novo</a></button></div>     
+    <a style="color:white;text-decoration: none; font-size: 20px;" href="/"><i class='fas fa-plus-circle' style='font-size:24px'></i> Cadastrar novo</a></button></div>     
         </div>
 </body>
 </html>

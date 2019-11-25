@@ -18,19 +18,41 @@
 
 <h2 class="container">Editar Registro<h2>
     <% data.forEach(function(details) { %>
-        <form action="/edit/<%= details._id %>" method="POST">
-            <input type="text" value="<%= details.name %>" name="name"  style="width: 350px;border: 2px solid black; height: 31px;">
-            <input type="text"  class="cpfOuCnpj" value="<%= details.surname %>" name="surname" style="width: 150px; border: 2px solid black; height: 31px;">
-            <input list="regime" placeholder="Regime Tributário" style="width:130px;border: 2px solid black; height: 31px;"name="regime" value="<%= details.regime %>">
-              <datalist id="regime_tributario">
-                    <option value="Simples Nacional">
-                    <option value="Lucro Presumido">
-                    <option value="Lucro Real">
-                    <option value="Micro Empreendedor Individual">
-                    <option value="Liquidado">     
-              </datalist>
-            <br>
 
+        <form action="/edit/<%= details._id %>" method="POST">
+
+            
+    <div style="display: inline-block;">
+
+         <div style="display: block;float: left;">
+            <p style="font-family: sans-serif;">Razão Social</p>
+            <input type="text" value="<%= details.name %>" name="name"  style="width: 350px;border: 2px solid black; height: 31px;">
+
+            <p style="font-family: sans-serif;">CNPJ</p>
+            <input type="text"  class="cpfOuCnpj" value="<%= details.surname %>" name="surname" style="width: 150px; border: 2px solid black; height: 31px;">
+        </div>
+  
+        <div style="display: block; float: right; margin-left: 10px;">
+            <p style="font-family: sans-serif;">Endereço</p>
+            <input type="text" class="" value="<%= details.endereco %>" name="endereco" style="width: 250px; border: 2px solid black; height: 31px;">
+
+            <p style="font-family: sans-serif;">Telefone</p>
+            <input type="text" class="" value="<%= details.telefone %>" name="telefone" style="width: 150px; border: 2px solid black; height: 31px;"> 
+        </div>
+
+        <div style="">
+         <p style="font-family: sans-serif; margin-top: 250px;">Regime Tributário</p>
+            <input list="regime" placeholder="Regime Tributário" style="width:130px;border: 2px solid black;                                   height: 31px;"name="regime" value="<%= details.regime %>">
+                          <datalist id="regime_tributario">
+                                <option value="Simples Nacional"></option>
+                                <option value="Lucro Presumido"></option>
+                                <option value="Lucro Real"></option>
+                                <option value="Micro Empreendedor Individual"></option>
+                                <option value="Liquidado"></option>     
+                          </datalist>
+
+        </div>
+                 <div style="display: block;">
             <button  style="
                         background-color:#03adfc;
                         border:1px solid #03adfc;
@@ -59,9 +81,11 @@
                         text-decoration-color: white;
                         color: white;
                         ">
-                    Atualizar</button>
+                    Atualizar</button> 
+                </div>
         </form>
     <% }) %>  
+
 
 </body>
 <script type="text/javascript">
