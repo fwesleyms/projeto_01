@@ -3,10 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/grid.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,7 +10,7 @@
 	<title>Cadastro de Pessoa Jurídica</title>
 </head>
 <body style="background-color: #e8dbdb">
-<header style="float:center; text-align: center; font-size: 34px; font-weight: bolder; width: 70%;"><img src="https://img6.androidappsapk.co/115/d/5/1/br.ltsolucoesconsultas.cnpj.png"><br>Cadastro de Pessoas Jurídicas </header>
+<header style="float:center; text-align: center; font-size: 34px; font-weight: bolder; width: 40%;"><img src="https://img6.androidappsapk.co/115/d/5/1/br.ltsolucoesconsultas.cnpj.png"><br>Cadastro de Pessoas Jurídicas </header>
 
     <h2 style="font-family: sans-serif;">Cadastre uma nova empresa<h2>
     <form action="/show" method="POST">
@@ -24,7 +20,7 @@
             <p style="font-family: sans-serif;">Razão Social</p>
         <input type="text" placeholder=" Nome Fantasia" name="name" style="width: 350px;border: 2px solid black; height: 31px;"> 
             <p style="font-family: sans-serif;">CNPJ</p>
-        <input type="text" placeholder=" CNPJ" class="cpfOuCnpj" name="surname" style="width: 125px; border: 2px solid black; height: 31px;">
+        <input type="text" placeholder=" CNPJ" required class="cpfOuCnpj" name="surname" style="width: 125px; border: 2px solid black; height: 31px;">
     </div>
 
             <div style="display: block; float: right; margin-left: 10px;">
@@ -32,7 +28,7 @@
         <input type="text" placeholder=" Endereço" class="" name="endereco" style="width: 250px; border: 2px solid black; height: 31px;">
 
             <p style="font-family: sans-serif;">Telefone</p>
-        <input type="text" placeholder=" (88 4002-8922)" class="" name="telefone" style="width: 125px; border: 2px solid black; height: 31px;">
+        <input type="text" placeholder=" (88 4002-8922)" id="telefone" maxlength="15" name="telefone" style="width: 125px; border: 2px solid black; height: 31px;">
 
        </div>
         <div style="">
@@ -88,4 +84,30 @@
 
 $('.cpfOuCnpj').length > 11 ? $('.cpfOuCnpj').mask('00.000.000/0000-00', options) : $('.cpfOuCnpj').mask('000.000.000-00#', options); 
 </script>
+<script type="text/javascript">
+/* Máscaras ER */
+function mascara(o,f){
+    v_obj=o
+    v_fun=f
+    setTimeout("execmascara()",1)
+}
+function execmascara(){
+    v_obj.value=v_fun(v_obj.value)
+}
+function mtel(v){
+    v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+    v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+    v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+    return v;
+}
+function id( el ){
+    return document.getElementById( el );
+}
+window.onload = function(){
+    id('telefone').onkeyup = function(){
+        mascara( this, mtel );
+    }
+}
+</script>
+
 </html>
